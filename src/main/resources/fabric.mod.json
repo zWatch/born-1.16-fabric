@@ -19,12 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod",
-      "zwatch.mcmod.born.FirstMod"
+      "zwatch.born.FirstMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "born.mixins.json"
   ],
 
   "depends": {
