@@ -3,11 +3,11 @@ package zwatch.born;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.block.Material;
+import net.minecraft.item.*;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
@@ -33,6 +33,7 @@ public class FirstMod implements ModInitializer {
             .build();
 
     public static final Item FirstItem  = new FirstItem(new FabricItemSettings().group(ItemGroup.MISC));
+    public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
 
     @Override
     public void onInitialize() {
@@ -40,6 +41,8 @@ public class FirstMod implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
         Registry.register(Registry.ITEM, new Identifier("born", "first_item"), FirstItem);
+        Registry.register(Registry.BLOCK, new Identifier("born", "first_block"), EXAMPLE_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier("born", "first_block"), new BlockItem(EXAMPLE_BLOCK, new FabricItemSettings().group(ItemGroup.MISC)));
         //System.out.println("Hello Fabric world!");
     }
 }
