@@ -2,5 +2,6 @@
   "item.born.first_item": "My First Item",
   "item.born.first_item.tooltip": "this is tooltip",
   "item.born.watch_item.tooltip": "My Tooltip in day %d, and month %d",
-  "item.born.my_awesome.item": "My Awesome Item"
+  "item.born.my_awesome.item": "My Awesome Item",
+  "enchantment.born.frost": "Frost"
 }

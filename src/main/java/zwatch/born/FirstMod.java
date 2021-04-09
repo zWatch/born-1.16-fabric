@@ -7,11 +7,13 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.*;
 import net.minecraft.potion.PotionUtil;
 import net.minecraft.potion.Potions;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import zwatch.born.enchantment.ForstEnchantment;
 import zwatch.born.item.FirstItem;
 
 public class FirstMod implements ModInitializer {
@@ -34,6 +36,12 @@ public class FirstMod implements ModInitializer {
 
     public static final Item FirstItem  = new FirstItem(new FabricItemSettings().group(ItemGroup.MISC));
     public static final Block EXAMPLE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(4.0f));
+
+    private static Enchantment FROST = Registry.register(
+            Registry.ENCHANTMENT,
+            new Identifier("born", "frost"),
+            new ForstEnchantment()
+    );
 
     @Override
     public void onInitialize() {

@@ -21,17 +21,18 @@ public class FirstBlock extends Block {
         setDefaultState(getStateManager().getDefaultState().with(HARDENED, false));
     }
 
-//    @Override
-//    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-//        if (!world.isClient) {
-//            player.sendMessage(new LiteralText("Hello, world!"), false);
-//        }
-//        return ActionResult.SUCCESS;
-//    }
+    //    @Override
+    //    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    //        if (!world.isClient) {
+    //            player.sendMessage(new LiteralText("Hello, world!"), false);
+    //        }
+    //        return ActionResult.SUCCESS;
+    //    }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        world.setBlockState(pos, state.with(HARDENED, true));
+        boolean hardened = state.get(HARDENED);
+        world.setBlockState(pos, state.with(HARDENED, !hardened));
         return ActionResult.SUCCESS;
     }
 
